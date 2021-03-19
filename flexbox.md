@@ -302,4 +302,220 @@ Lets make it a flex-container and align the flex-items inside it to center
     justify-content: center;
 }
 ```
+Lets create a new div named photo-grid inside the photo-grid-container where we will be placing the photos.
 
+```HTML
+<div class='photo-grid-container'>
+    <div class='photo-grid'>
+
+    </div>
+</div>
+```
+Add the following properties to the CSS file
+```CSS
+.photo-grid {
+    justify-content: center;
+}
+```
+
+* Make it a flex-container
+* Justify the content to the center
+* The flex-wrap property specifies whether the flexible items should wrap or not
+* The flex-direction property specifies the direction of the flexible items.
+* Vertically align the items to the center
+
+Lets place the photos now inside the photo-grid div.
+```HTML
+<div class='photo-grid-container'>
+    <div class='photo-grid'>
+        <div class='photo-grid-item '>-->
+            <img src='images/one.svg'/>
+        </div>
+        <div class='photo-grid-item'>
+            <img src='images/two.svg'/>
+        </div>
+        <div class='photo-grid-item'>
+            <img src='images/three.svg'/>
+        </div>
+        <div class='photo-grid-item'>
+            <img src='images/four.svg'/>
+        </div>
+        <div class='photo-grid-item '>
+            <img src='images/five.svg'/>
+        </div>
+    </div>
+</div>
+```
+Add the following lines to the CSS file to give the items and width and height.
+```CSS
+.photo-grid-item {
+    border: 1px solid #fff;
+    width: 300px;
+    height: 300px;
+}
+```
+The output for your html file now looks like this:
+
+![image](images/11.png)
+
+Lets make the photo-grid a flex-container 
+```CSS
+.photo-grid {
+    justify-content: center;
+    display:flex;
+}
+```
+The output for your html file now looks like this:
+
+![image](images/12.png)
+
+We see that the photos get aligned in a row even if we havent mentioned the flex-direction.This is because
+the flex-direction in a flexbox is a row by default.
+
+Lets add the following lines to the CSS file
+```CSS
+.photo-grid {
+    display: flex;
+    justify-content: center;
+    width: 900px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    
+}
+```
+We give the phot-grid a width of 900px and add the flex-wrap property to wrap the photos if they
+exceed the width.
+We also assign the flex-direction as row although its not necessary as the flex-direction is row by default.
+
+The output for your html file now looks like this:
+
+![image](images/13.png)
+
+We notice that we need to rearrage the photos as in the desired output 5 comes first and 1 is the last item.
+To do this we assign a flex items an order.
+* The items have a default order of 0.
+* They are arranged in an ascending order as per the order value.
+* So to put the FIVE  to the beginning we assign it an order of -1.
+* To put the ONE  to the end we assign it an order of 1.
+* The other items will have an order of 0 by default and will be arranged as per their position in the div.
+
+
+```HTML
+<div class='photo-grid-container'>
+    <div class='photo-grid'>
+        <div class='photo-grid-item first-item'>
+            <img src='images/one.svg'/>
+        </div>
+        <div class='photo-grid-item'>
+            <img src='images/two.svg'/>
+        </div>
+        <div class='photo-grid-item'>
+            <img src='images/three.svg'/>
+        </div>
+        <div class='photo-grid-item'>
+            <img src='images/four.svg'/>
+        </div>
+        <div class='photo-grid-item last-item'>
+            <img src='images/five.svg'/>
+        </div>
+    </div>
+</div>
+```
+We assign a class-name first item to image ONE, and a class-name last-item to image FIVE.
+Lets now add the following CSS properties.
+
+```CSS
+.first-item {
+    order: 1;
+}
+
+.last-item {
+    order: -1;
+}
+```
+The first-item (image ONE) is assigned an order of 1 so it appears at the last.
+The last-item (image FIVE) is assigned an order of -2 so it appears at the beginning.
+
+The output for your html file now looks like this:
+
+![image](images/14.png)
+
+Lets now add the footer items
+```HTML
+<div class='footer'>
+    <div class='footer-item '></div>
+    <div class='footer-item '></div>
+    <div class='footer-item '></div>
+</div>
+```
+And the CSS
+```CSS
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
+.footer-item {
+    border: 1px solid #fff;
+    background-color: #D6E9FE;
+    height: 200px;
+    flex:1;
+}
+```
+We create a flex-container and put the three footer-items inside it.Every footer-item has a flex of 1.
+The flex property sets the flexible length on flexible items.Here each flex-item has a flex of 1 so they share the available width in the same ratio.
+
+The output for your html file now looks like this:
+
+![image](images/15.png)
+
+We can see that the three flex-items are sharing the available width in the same ratio.
+The first and the third flex-item have a different color. So lets assign them a different color.
+
+Assign them three class names footer-one, footer-two and footer-three
+```HTML
+<div class='footer'>
+    <div class='footer-item footer-one'></div>
+    <div class='footer-item footer-two'></div>
+    <div class='footer-item footer-three'></div>
+</div>
+
+```
+And the CSS
+```CSS
+.footer-one,
+.footer-three {
+    background-color: #5995DA;
+}
+```
+The output for your html file now looks like this:
+
+![image](images/16.png)
+
+We want the first and third footer to be smaller in size so lets give them a fixed width.
+```CSS
+.footer-one,
+.footer-three {
+    background-color: #5995DA;
+    width: 300px;
+}
+```
+We see that the output doesnt change and still looks like this.
+
+![image](images/16.png)
+
+This is because the flex overrides the width.So the flex-items still have a flex of 1.
+To override the flex lets change the code a bit.
+
+```CSS
+.footer-one,
+.footer-three {
+    background-color: #5995DA;
+    width: 300px;
+    flex: initial;
+}
+```
+flex:initial  sizes the item based on its width/height properties.
+
+The output for your html file now looks like this:
+
+![image](images/17.png)
