@@ -11,8 +11,8 @@ The float property can have one of the following values:
 
 The following two images demonstrate the additional control that flexbox provides you as compared to float.
 
-![float](https://www.1keydata.com/css-tutorial/example-float-right-float-left.jpg)
-![flexbox](https://css-tricks.com/wp-content/uploads/2018/10/justify-content.svg)
+![float](images/floatExample.png)
+![flexbox](images/flexExample.png)
 # FlexBox Example
 ## Objective
 Our objective is to design this layout
