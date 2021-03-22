@@ -62,7 +62,7 @@ The output for your html file should look like this:
 
 ![project](images/1.png)
 
-Create an images folder and download the images from here: [images](https://www.internetingishard.com/html-and-css/flexbox/flexbox-images-449705.zip)
+Create an images folder and download the images from here: [images](downloadImages)
 
 Flexbox uses two types of boxes that we’ve never seen before:
 * Flex Containers 
